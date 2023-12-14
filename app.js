@@ -11,7 +11,6 @@ const mongoose = require('mongoose');
 const path = require('path');
 const methodOverride = require("method-override");
 const Listing = require("./models/listing.js")
-//const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderlust';
 const dbUrl = process.env.ATLASDB_URL
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js")
