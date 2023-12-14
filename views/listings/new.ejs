@@ -1,0 +1,74 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h3 class="my-5">Create a new listing</h3>
+                <form action="/listings" method="post" novalidate class="needs-validation"
+                    enctype="multipart/form-data">
+
+                    <div class="mb-3">
+                        <label for="propertyType" class="mb-2">Property Type</label>
+                        <select name="listing[propertyType]" class="form-select" required>
+                            <option value="" disabled selected>Select property type</option>
+                            <option value="Farms">Farms</option>
+                            <option value="Amazing views">Amazing views</option>
+                            <option value="Mansions">Mansions</option>
+                            <option value="Caves">Caves</option>
+                            <option value="Beachfront">Beachfront</option>
+
+                            <!-- Add more property types as needed Farms', 'Amazing views', 'Mansions', 'Caves','Beachfront' -->
+                        </select>
+                    </div>
+
+
+
+
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="listing[title]" placeholder="enter title" class="form-control"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description"class="mb-2">Description</label>
+                        <textarea name="listing[description]" cols="30" rows="10" placeholder="enter description"
+                            class="form-control" required></textarea>
+                    </div>
+                 
+                    <div class="mb-3">
+                        <label for="image"class="mb-2">Upload Image</label>
+                        <input type="file" name="listing[image]"
+                            class="form-control" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="price"class="mb-2">Price</label>
+                            <input name="listing[price]" placeholder="enter price" class="form-control" required>
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <label for="country"class="mb-2">Country</label>
+                            <input type="text" name="listing[country]" placeholder="enter country" class="form-control"
+                                required>
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="location"class="mb-2"> Location</label>
+                        <input type="text" name="listing[location]" placeholder="enter location" class="form-control"
+                            required>
+
+
+                    </div>
+
+                    <button class="btn btn-dark my-5 add-btn  px-3">Add</button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </body>

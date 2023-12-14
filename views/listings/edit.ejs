@@ -1,0 +1,77 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h3 class="my-5">Edit your listing</h3>
+
+                <form action="/listings/<%= listing._id %>?_method=PUT" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+
+                    <div class="mb-3">
+                        <label for="propertyType" class="mb-2">Property Type</label>
+                        <select name="listing[propertyType]" class="form-select" required>
+                            <option value="" disabled selected>Select property type</option>
+                            <option value="Farms">Farms</option>
+                            <option value="Amazing views">Amazing views</option>
+                            <option value="Mansions">Mansions</option>
+                            <option value="Caves">Caves</option>
+                            <option value="Beachfront">Beachfront</option>
+
+                            <!-- Add more property types as needed Farms', 'Amazing views', 'Mansions', 'Caves','Beachfront' -->
+                        </select>
+                    </div>
+                   
+                   
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="listing[title]" value="<%=listing.title%>" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="listing[description]" cols="30" rows="10"
+                            class="form-control" required><%=listing.description%></textarea>
+
+
+                    </div>
+
+                    <div class="mb-3">
+                        Orignal listing image <br>
+                        <img src="<%=orignalImageUrl %>" alt="" class=" edit-listing-image image-fluid my-3">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Upload New Image</label>
+                        <input type="file" name="listing[image]" value="<%=listing.image%>" class="form-control">
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="mb-3 col-md-4">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" name="listing[price]" value="<%=listing.price%>" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3 col-md-8">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" name="listing[country]" value="<%=listing.country%>"
+                                class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="listing[location]" value="<%=listing.location%>" class="form-control" required>
+                    </div>
+
+
+                    <button class="btn btn-dark my-5 edit-btn">Edit</button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </body>
