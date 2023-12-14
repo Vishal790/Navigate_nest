@@ -1,15 +1,17 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0 ;
+    padding: 0 ;
+    box-sizing: border-box ;
 }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     display: flex;
-    ;
     flex-direction: column;
     min-height: 100vh;
+    min-width:100vw;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .container {
@@ -129,10 +131,6 @@ body {
 /* show page */
 
 
-body {
-    margin: 0;
-    padding: 0;
-}
 
 .show-img {
     height: 45vh;
