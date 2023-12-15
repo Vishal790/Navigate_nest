@@ -9,83 +9,105 @@
         <!-- <form action="/listings/new" method="get">
         <button>Create new listings</button>
     </form> -->
-    <style>
-       #filters{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-       }
-       .filter{
-        text-align: center;
-        margin-right: 2rem;
-        margin-top: 2rem;
-        opacity: 0.7;
-       }
-       .filter:hover{
-        opacity: 1;
-        cursor: pointer;
-       }
-       .filter p{
-        font-size: 0.8rem;
-       }
+        <style>
+            #filters {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+            }
 
-       .tax-info{
-        display: none;
-       }
+            .filter {
+                text-align: center;
+                margin-right: 2rem;
+                margin-top: 2rem;
+                opacity: 0.7;
+                padding: 0;
 
-       .tax-toggle{
-        border: 1px solid grey;
-        border-radius: 1rem;
-        height: 3.5rem;
-        padding: 1rem;
-       }
-       .display-filters{
-        display: flex;
-       }
+            }
+
+            .filter:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+
+            .filter p {
+                font-size: 0.8rem;
+            }
+
+            .tax-info {
+                display: none;
+            }
+
+            .tax-toggle {
+                border: 1px solid grey;
+                border-radius: 1rem;
+                height: 3.5rem;
+                padding: 1rem;
+            }
+
+            .display-filters {
+                display: flex;
+                flex-wrap: wrap;
+
+                @media (max-width: 474px) {
+                    .display-filters {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    .filter {
+                        margin-right: 20px;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+              
+            }
+        </style>
+        <script>
+            function applyFilter(filterType) {
+                window.location.href = `/listings?filter=${encodeURIComponent(filterType)}`;
+            }
+        </script>
+
 
        
-       
-    </style>
-    <script>
-         function applyFilter(filterType) {
-        window.location.href = `/listings?filter=${encodeURIComponent(filterType)}`;
-    }
-    </script>
+        
+            <div id="filters">
+                <div class="display-filters">
+                    <div class="filter" onclick="applyFilter('Farms')">
+                        <div><i class="fas fa-tractor"></i></div>
+                        <p>Farms</p>
+                    </div>
+                    <div class="filter" onclick="applyFilter('Amazing views')">
+                        <div><i class="fas fa-panorama"></i></div>
+                        <p>Amazing views</p>
+                    </div>
+                    <div class="filter" onclick="applyFilter('Mansions')">
+                        <div><i class="fas fa-house"></i></div>
+                        <p>Mansions</p>
+                    </div>
+                    <div class="filter" onclick="applyFilter('Caves')">
+                        <div><i class="fas fa-igloo"></i></div>
+                        <p>Caves</p>
+                    </div>
+                    <div class="filter" onclick="applyFilter('Beachfront')">
+                        <div><i class="fas fa-umbrella-beach"></i></div>
+                        <p>Beachfront</p>
 
-        <div id="filters">
-           <div class="display-filters">
-            <div class="filter" onclick="applyFilter('Farms')">
-                <div><i class="fa-solid fa-tractor"></i></div>
-               <p>Farms</p>
-            </div>
-            <div class="filter" onclick="applyFilter('Amazing views')" >
-                <div><i class="fa-solid fa-panorama"></i></div>
-               <p>Amazing views</p>
-            </div>
-            <div class="filter"onclick="applyFilter('Mansions')">
-                <div><i class="fa-solid fa-house"></i></div>
-               <p>Mansions</p>
-            </div>
-            <div class="filter"onclick="applyFilter('Caves')">
-                <div><i class="fa-solid fa-igloo"></i></div>
-               <p>Caves</p>
-            </div>
-            <div class="filter"onclick="applyFilter('Beachfront')">
-                <div><i class="fa-solid fa-umbrella-beach"></i></div>
-               <p>Beachfront</p>
+                    </div>
+                </div>
+
+                <div class="tax-toggle">
+                    <div class="form-check-reverse form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+                    </div>
+                </div>
 
             </div>
-           </div>
-
-            <div class="tax-toggle">
-                <div class="form-check-reverse form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
-                  </div>
-            </div>
-
-        </div>
+        
 
 
         <div class="row mt-3">
@@ -113,18 +135,18 @@
 
         <script>
             let taxSwitch = document.getElementById("flexSwitchCheckDefault")
-            taxSwitch.addEventListener('click',()=>{
+            taxSwitch.addEventListener('click', () => {
                 let taxInfo = document.getElementsByClassName('tax-info');
-                for(info of taxInfo){
-                    if(info.style.display != 'inline'){
+                for (info of taxInfo) {
+                    if (info.style.display != 'inline') {
                         info.style.display = "inline";
 
                     }
-                    else{
+                    else {
                         info.style.display = "none";
                     }
                 }
-                
+
             })
         </script>
 
